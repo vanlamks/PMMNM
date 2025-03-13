@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách dự án</title>
+</head>
+<body>
+    <h1>Danh sách Dự Án</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên dự án</th>
+                <th>Ngày bắt đầu</th>
+                <th>Ngày kết thúc</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for project in projects %}  {# Đảm bảo biến đúng với views #}
+                <tr>
+                    <td>{{ project.project_id }}</td>
+                    <td>{{ project.title }}</td>
+                    <td>{{ project.created_at }}</td>
+                    <td>{{ project.updated_at }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="4">Không có dự án nào</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>

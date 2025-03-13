@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách nhân viên và dự án</title>
+</head>
+<body>
+    <h1>Danh sách Nhân Viên và Dự Án</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Tên thành viên</th>
+                <th>Dự án</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for employee_project in employee_projects %}
+                <tr>
+                    <td>{{ employee_project.employee.first_name }} {{ employee_project.employee.last_name }}</td>
+                    <td>{{ employee_project.project.title }}</td>
+                </tr>
+            {% empty %}
+                <tr>
+                    <td colspan="2">Không có nhân viên và dự án nào</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
